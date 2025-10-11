@@ -5,8 +5,6 @@
 #include "CheckBoxHeaderView.h"
 #include "DialogChart.h"
 
-#include "sldmv.h"
-
 #include <QPainter>
 #include <QPixmap>
 #include <QImage>
@@ -21,6 +19,8 @@
 #include <QCoreApplication>
 #include <QApplication>
 #include <QSettings>
+
+#include "LinearFixing1.h"
 
 int GenMessageBox(QWidget *parent,const QString&strTitle,const QString&strMsg)
 {
@@ -93,10 +93,6 @@ MainWindow::MainWindow(QWidget *parent)
         set.setValue("DarkMode", true);
         set.setValue("FontSize", 15);
         set.endGroup();
-    }
-    {
-        unsigned long type= 0 ;
-        SLDM_GetPtMoveP(0,0,&type) ;
     }
 
     static USBNotifier *pUsb = new USBNotifier(this);
@@ -216,29 +212,20 @@ MainWindow::MainWindow(QWidget *parent)
         /*QComboBox{ font: bold 24px 微软雅黑; min-width:200px; }*/
         QHeaderView{ background-color:skyblue;}
 
-        QHeaderView::section:vertical{ min-width:32px; border: none; padding:3px;}
-        QHeaderView::section{ background-color:skyblue; border: 1px solid gray; text-align: left;}
+        QHeaderView::section:vertical{ min-width:32px; border-bottom: 1px solid gray; padding:3px; qproperty-alignment: right;}
+        QHeaderView::section:vertical{ background-color: skyblue; border: 1px solid transparent; text-align: right;}
+        QHeaderView::section:horizontal{background-color: skyblue; border: 1px solid gray; border-top: 1px solid transparent; border-right: 1px solid transparent;}
 
         QTableView{ background-color: rgb(226, 249, 255);}
-        QTableView::Item{ border: 1px solid gray;}
+        QTableView::Item{ border-left: 1px solid gray;border-bottom: 1px solid gray;}
         QTableView::Item::selected{ background-color: #a0bb9e ; color: white;}
-        QTableView QTableCornerButton::section {background-color: skyblue; }
- /*
+        QTableView QTableCornerButton::section {background-color: skyblue; border: 1px solid transparent;border-bottom: 1px solid gray;}
+
         QTableView::indicator {
-            position: relative;
-            right: -120%;
+            position: fixed;
+            right: 80px;
             margin-right: 8px;
         }
-*/
-QTableView::item::indicator {
-    /* 将复选框靠右对齐 */
-    position: right;
-    /* 可以添加一些右边距来调整位置 */
-}
-
-QTableView QHeaderView::section {
-    qproperty-alignment: AlignRight;
-}
 
         //CheckBox::indicator{ width: 20px; height: 20px;}
     )") ;
@@ -445,16 +432,27 @@ void MainWindow::on_pushButton_clicked()
     dlg.exec() ;
 }
 
-
+#include "SColorDialog.h"
+#include "XColorDialog.h"
 void MainWindow::on_pushButton_2_clicked()
 {
-    DialogChart dlg(this) ;
-    dlg.exec() ;
+    //LinearFixing1 dialog("这是标题","提示消息内容！",this);
+    //dialog.exec();
+
+    //DialogChart dlg(this) ;
+    //dlg.exec() ;
+
+    SColorDialog dlg;
+    dlg.exec();
 }
 
 
 void MainWindow::on_pushButtonSavePng_clicked()
 {
+    XColorDialog dlg;
+    dlg.exec();
+
+    return ;
     QPixmap Png(size()) ;
     this->render(&Png) ;
 

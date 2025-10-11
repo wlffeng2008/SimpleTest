@@ -9,8 +9,11 @@ CONFIG += c++17
 # In order to do so, uncomment the following line.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
-LIBS += -L$$PWD -lsldmv
 QMAKE_PROJECT_DEPTH = 0
+
+include(XColorDialog/XColorDialog.pri)
+INCLUDEPATH+=$$PWD/XColorDialog
+
 
 SOURCES += \
     CheckBoxHeaderView.cpp \
@@ -18,6 +21,7 @@ SOURCES += \
     DialogChart.cpp \
     DialogMotionCtrl.cpp \
     DialogScrollTest.cpp \
+    LinearFixing1.cpp \
     main.cpp \
     MainWindow.cpp
 
@@ -27,6 +31,7 @@ HEADERS += \
     DialogChart.h \
     DialogMotionCtrl.h \
     DialogScrollTest.h \
+    LinearFixing1.h \
     MainWindow.h
 
 FORMS += \
