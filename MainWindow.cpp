@@ -139,6 +139,9 @@ MainWindow::MainWindow(QWidget *parent)
     image.save("D:\\123456.png") ;
     this->grab().save("D:\\test.png") ;
 
+    ui->labelIcon1->setPixmap(QApplication::style()->standardIcon(QStyle::SP_MessageBoxCritical).pixmap(64,64));
+    ui->labelIcon2->setPixmap(QApplication::style()->standardIcon(QStyle::SP_TabCloseButton).pixmap(64,64));
+
     {
         QPixmap pixmap(1366,768);
         pixmap.fill(Qt::transparent);  // 关键步骤：预填充透明背景
