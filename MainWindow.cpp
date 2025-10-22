@@ -112,6 +112,33 @@ MainWindow::MainWindow(QWidget *parent)
         GenMessageBox(this,"提示","确定要退出吗1？确定要退出吗2？确定要退出吗3？确定要退出吗4？确定要退出吗5？\n确定要退出吗6？\n确定要退出吗7？\n确定要退出吗8？\n确定要退出吗？\n确定要退出吗？\n确定要退出吗？\n确定要退出吗？\n确定要退出吗？\n") ;
     }) ;
 
+    {
+        QImage image(20, 20, QImage::Format_ARGB32);
+        image.fill(Qt::transparent);
+        QPainter painter(&image);
+
+        painter.setRenderHint(QPainter::Antialiasing);
+        QRect rect = QRect(0,0,20,20).adjusted(1,1,-1,-1);
+
+        int nPW = 2 ;
+        int nRadius = rect.height()/2 ;
+        if(nRadius>10)
+            nRadius = 10 ;
+        while(rect.height()>nRadius * 2)
+            rect.adjust(1,1,-1,-1);
+
+        painter.setPen(QPen(QBrush(0x6329B6),nPW));
+        painter.drawArc(rect,0,360*16);
+        painter.setBrush(0x6329B6);
+        painter.drawEllipse(rect.center()+QPoint(1,1),nRadius-nPW*2,nRadius-nPW*2);
+        image.save("D:/radioChecked.png") ;
+
+        image.fill(Qt::transparent);
+        painter.setPen(QPen(QBrush(Qt::black),nPW));
+        painter.drawArc(rect,0,360*16);
+        image.save("D:/radioUncheck.png") ;
+    }
+
     QImage image(1024, 600, QImage::Format_ARGB32);
     image.fill(Qt::transparent);  // 填充完全透明背景
 
@@ -229,6 +256,15 @@ MainWindow::MainWindow(QWidget *parent)
             right: 80px;
             margin-right: 8px;
         }
+
+QTabBar::tab:selected {
+    color: #6329B6;
+    border-left: 3px solid transparent;
+    border-top: 3px solid transparent;
+    border-right: 3px solid transparent;
+    border-bottom: 3px solid #6329B6;
+    icon: url(:/images/BoxChecked.png);;
+}
 
         //CheckBox::indicator{ width: 20px; height: 20px;}
     )") ;

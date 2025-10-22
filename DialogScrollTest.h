@@ -2,6 +2,7 @@
 #define DIALOGSCROLLTEST_H
 
 #include <QDialog>
+#include <QLabel>
 
 namespace Ui {
 class DialogScrollTest;
@@ -17,6 +18,7 @@ public:
 
 private:
     Ui::DialogScrollTest *ui;
+    QList<QLabel*>m_flags;
 };
 
 #endif // DIALOGSCROLLTEST_H
