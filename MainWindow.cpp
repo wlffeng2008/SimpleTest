@@ -22,6 +22,10 @@
 
 #include "LinearFixing1.h"
 
+#include "MyEasyApp.h"
+#include <QKeyEvent>
+#include <QMouseEvent>
+
 int GenMessageBox(QWidget *parent,const QString&strTitle,const QString&strMsg)
 {
     static bool set=false ;
@@ -58,6 +62,41 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     qApp->setStyle(new CustomStyle);
+    {
+        QString strBuild ;
+#ifdef _MSC_VER
+
+        QString strName = "MSVC2017";
+
+#if _MSC_VER >= 1930
+        strName = "MSVC2022";
+#elif _MSC_VER >= 1920
+        strName = "MSVC2019";
+#else
+        strName = "MSVC2017";
+#endif
+
+        strBuild = QString("使用 %1 或更高版本编译, 版本号: %2").arg(strName).arg(_MSC_VER)  ;
+
+#else
+        strBuild = "非 MSVC 编译(如 MinGW, GCC 等)";
+#endif
+
+        QString strTitle = QString("SimpleTest (V2.12) -- [Build: %1] [By Qt%2] -- [%3]").arg(__TIMESTAMP__,QT_VERSION_STR,strBuild) ;
+        setWindowTitle(strTitle);
+        qDebug() << strTitle;
+    }
+    {
+        MyEasyApp *app = dynamic_cast<MyEasyApp *>(qApp);
+
+        connect(app,&MyEasyApp::onKeyEvent,this,[=](QObject *receiver,QKeyEvent *keyEvent){
+            qDebug() << "全局按键:" << receiver << keyEvent->key() << keyEvent->type() << keyEvent->text() << QString::asprintf("%04X",keyEvent->nativeScanCode());
+        });
+
+        connect(app,&MyEasyApp::onMouseEvent,this,[=](QObject *receiver,QMouseEvent *mEvent){
+          qDebug() << "全局鼠标:" <<  receiver << mEvent->type() << mEvent->globalPosition();
+        });
+    }
 
     {
         QCoreApplication::setOrganizationName("MyCompany");

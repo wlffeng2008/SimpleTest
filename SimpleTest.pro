@@ -32,7 +32,8 @@ HEADERS += \
     DialogMotionCtrl.h \
     DialogScrollTest.h \
     LinearFixing1.h \
-    MainWindow.h
+    MainWindow.h \
+    MyEasyApp.h
 
 FORMS += \
     DialogChart.ui \
