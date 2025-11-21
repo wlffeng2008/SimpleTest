@@ -61,7 +61,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    qApp->setStyle(new CustomStyle);
+    //qApp->setStyle(new CustomStyle);
     {
         QString strBuild ;
 #ifdef _MSC_VER
@@ -255,6 +255,9 @@ MainWindow::MainWindow(QWidget *parent)
     )";
 
     setStyleSheet(R"(
+
+p, li { white-space: pre-wrap; }
+
         QProgress:horizontal{max-height: 20px;}
         QSlider::groove:horizontal { height: 10px; background: #DCDCDC; border-radius: 4px;}
         QSlider::sub-page:horizontal { background: #3EA8FF;  border-radius: 4px;}
@@ -278,7 +281,7 @@ MainWindow::MainWindow(QWidget *parent)
 
         QSlider::handle:hover { background: #F0F0F0;}
         QSlider::handle:pressed { background: #E0E0E0; border-color: #2D7FD1; }
-        /*QComboBox{ font: bold 24px 微软雅黑; min-width:200px; }*/
+        QComboBox{ font: bold 20px 微软雅黑; min-width:100px; }
         QHeaderView{ background-color:skyblue;}
 
         QHeaderView::section:vertical{ min-width:32px; border-bottom: 1px solid gray; padding:3px; qproperty-alignment: right;}
@@ -292,8 +295,7 @@ MainWindow::MainWindow(QWidget *parent)
 
         QTableView::indicator {
             position: fixed;
-            right: 80px;
-            margin-right: 8px;
+            left: 2px;
         }
 
 QTabBar::tab:selected {
@@ -302,10 +304,43 @@ QTabBar::tab:selected {
     border-top: 3px solid transparent;
     border-right: 3px solid transparent;
     border-bottom: 3px solid #6329B6;
-    icon: url(:/images/BoxChecked.png);;
+    icon: url(:/images/BoxChecked.png);
 }
 
-        //CheckBox::indicator{ width: 20px; height: 20px;}
+QCheckBox{
+    color: transparent;
+    background-color: #ff4949;
+    border: none;
+    border-radius: 10px;
+}
+QCheckBox:checked{
+    background-color: #13ce66;
+}
+QCheckBox:disabled{
+    background-color: #dcdfe6;
+}
+QCheckBox:checked:disabled{
+    background-color: #8ae0b7;
+}
+QCheckBox:indeterminate{
+    background-color:#ffc145
+}
+QCheckBox::indicator{
+    width: 16px;
+    height: 16px;
+    border: none;
+    border-radius: 8px;
+    background-color: #fff;
+    left: 2px;
+}
+QCheckBox::indicator:checked{
+    left: 22px;
+}
+QCheckBox::indicator:indeterminate{
+    left: 12px;
+}
+
+
     )") ;
 
     qApp->setStyleSheet(strStyle) ;

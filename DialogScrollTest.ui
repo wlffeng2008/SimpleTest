@@ -111,58 +111,6 @@
     </layout>
    </widget>
   </widget>
-  <widget class="QPushButton" name="pushButtonGo1">
-   <property name="geometry">
-    <rect>
-     <x>412</x>
-     <y>301</y>
-     <width>75</width>
-     <height>23</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Go1</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButtonGo2">
-   <property name="geometry">
-    <rect>
-     <x>412</x>
-     <y>330</y>
-     <width>75</width>
-     <height>23</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Go2</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButtonGo3">
-   <property name="geometry">
-    <rect>
-     <x>412</x>
-     <y>359</y>
-     <width>75</width>
-     <height>23</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Go3</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButtonGo4">
-   <property name="geometry">
-    <rect>
-     <x>412</x>
-     <y>388</y>
-     <width>75</width>
-     <height>23</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Go4</string>
-   </property>
-  </widget>
   <widget class="QTabWidget" name="tabWidget">
    <property name="geometry">
     <rect>
@@ -176,7 +124,7 @@
     <enum>QTabWidget::TabPosition::South</enum>
    </property>
    <property name="currentIndex">
-    <number>3</number>
+    <number>2</number>
    </property>
    <property name="documentMode">
     <bool>false</bool>
@@ -209,42 +157,12 @@
     </attribute>
    </widget>
   </widget>
-  <widget class="QKeySequenceEdit" name="keySequenceEdit">
-   <property name="geometry">
-    <rect>
-     <x>416</x>
-     <y>174</y>
-     <width>145</width>
-     <height>21</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QDateEdit" name="dateEdit">
-   <property name="geometry">
-    <rect>
-     <x>418</x>
-     <y>206</y>
-     <width>145</width>
-     <height>22</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QDateTimeEdit" name="dateTimeEdit">
-   <property name="geometry">
-    <rect>
-     <x>416</x>
-     <y>238</y>
-     <width>194</width>
-     <height>22</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QTextBrowser" name="textBrowser">
    <property name="geometry">
     <rect>
-     <x>512</x>
-     <y>288</y>
-     <width>256</width>
+     <x>528</x>
+     <y>276</y>
+     <width>273</width>
      <height>192</height>
     </rect>
    </property>
@@ -259,6 +177,93 @@ li.checked::marker { content: &quot;\2612&quot;; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#55aaff;&quot;&gt;大家好啊&lt;/span&gt;，我来自广东&lt;span style=&quot; font-size:18pt; font-weight:700;&quot;&gt;深圳&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
+  <widget class="QCheckBox" name="checkBox">
+   <property name="geometry">
+    <rect>
+     <x>424</x>
+     <y>130</y>
+     <width>40</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>CheckBox</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox_2">
+   <property name="geometry">
+    <rect>
+     <x>568</x>
+     <y>132</y>
+     <width>40</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>CheckBox</string>
+   </property>
+  </widget>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>418</x>
+     <y>278</y>
+     <width>77</width>
+     <height>165</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_2">
+    <item>
+     <widget class="QPushButton" name="pushButtonGo1">
+      <property name="text">
+       <string>Go1</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="pushButtonGo2">
+      <property name="text">
+       <string>Go2</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="pushButtonGo3">
+      <property name="text">
+       <string>Go3</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="pushButtonGo4">
+      <property name="text">
+       <string>Go4</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>416</x>
+     <y>174</y>
+     <width>189</width>
+     <height>77</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_3">
+    <item>
+     <widget class="QKeySequenceEdit" name="keySequenceEdit"/>
+    </item>
+    <item>
+     <widget class="QDateEdit" name="dateEdit"/>
+    </item>
+    <item>
+     <widget class="QDateTimeEdit" name="dateTimeEdit"/>
+    </item>
+   </layout>
+  </widget>
   <zorder>tabWidget</zorder>
   <zorder>scrollArea</zorder>
   <zorder>scrollArea_2</zorder>
@@ -270,6 +275,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
   <zorder>dateEdit</zorder>
   <zorder>dateTimeEdit</zorder>
   <zorder>textBrowser</zorder>
+  <zorder>checkBox</zorder>
+  <zorder>checkBox_2</zorder>
  </widget>
  <resources>
   <include location="res.qrc"/>
