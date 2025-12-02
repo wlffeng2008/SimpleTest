@@ -160,6 +160,13 @@
          </widget>
         </item>
         <item>
+         <widget class="KeyboardButton" name="pushButton_3">
+          <property name="text">
+           <string>PushButton</string>
+          </property>
+         </widget>
+        </item>
+        <item>
          <widget class="QPushButton" name="pushButtonMsg1">
           <property name="text">
            <string>MessageBox1</string>
@@ -233,6 +240,11 @@
    <class>CustumGraphicsView</class>
    <extends>QGraphicsView</extends>
    <header>custumgraphicsview.h</header>
+  </customwidget>
+  <customwidget>
+   <class>KeyboardButton</class>
+   <extends>QPushButton</extends>
+   <header>keyboardbutton.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

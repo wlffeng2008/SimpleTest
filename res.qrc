@@ -2,5 +2,7 @@
     <qresource prefix="/">
         <file>images/BoxChecked.png</file>
         <file>images/BoxUncheck.png</file>
+        <file>images/mt0.png</file>
+        <file>images/mt1.png</file>
     </qresource>
 </RCC>

@@ -22,6 +22,7 @@ SOURCES += \
     DialogMotionCtrl.cpp \
     DialogScrollTest.cpp \
     LinearFixing1.cpp \
+    keyboardbutton.cpp \
     main.cpp \
     MainWindow.cpp
 
@@ -33,7 +34,8 @@ HEADERS += \
     DialogScrollTest.h \
     LinearFixing1.h \
     MainWindow.h \
-    MyEasyApp.h
+    MyEasyApp.h \
+    keyboardbutton.h
 
 FORMS += \
     DialogChart.ui \
