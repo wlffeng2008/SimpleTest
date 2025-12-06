@@ -4,5 +4,7 @@
         <file>images/BoxUncheck.png</file>
         <file>images/mt0.png</file>
         <file>images/mt1.png</file>
+        <file>images/640M.webp</file>
+        <file>images/640O.webp</file>
     </qresource>
 </RCC>

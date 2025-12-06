@@ -160,9 +160,9 @@
   <widget class="QTextBrowser" name="textBrowser">
    <property name="geometry">
     <rect>
-     <x>528</x>
+     <x>544</x>
      <y>276</y>
-     <width>273</width>
+     <width>257</width>
      <height>192</height>
     </rect>
    </property>
@@ -203,13 +203,13 @@ li.checked::marker { content: &quot;\2612&quot;; }
     <string>CheckBox</string>
    </property>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>418</x>
      <y>278</y>
-     <width>77</width>
-     <height>165</height>
+     <width>109</width>
+     <height>189</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -243,7 +243,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
     </item>
    </layout>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>416</x>
@@ -264,19 +264,89 @@ li.checked::marker { content: &quot;\2612&quot;; }
     </item>
    </layout>
   </widget>
+  <widget class="QSpinBox" name="spinBox">
+   <property name="geometry">
+    <rect>
+     <x>628</x>
+     <y>174</y>
+     <width>147</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label1111">
+   <property name="geometry">
+    <rect>
+     <x>654</x>
+     <y>476</y>
+     <width>60</width>
+     <height>60</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>60</width>
+     <height>60</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>60</width>
+     <height>60</height>
+    </size>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="res.qrc">:/images/640M.webp</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label2222">
+   <property name="geometry">
+    <rect>
+     <x>534</x>
+     <y>478</y>
+     <width>100</width>
+     <height>100</height>
+    </rect>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>100</width>
+     <height>100</height>
+    </size>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="res.qrc">:/images/640O.webp</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <zorder>layoutWidget</zorder>
+  <zorder>layoutWidget</zorder>
   <zorder>tabWidget</zorder>
   <zorder>scrollArea</zorder>
   <zorder>scrollArea_2</zorder>
-  <zorder>pushButtonGo1</zorder>
-  <zorder>pushButtonGo2</zorder>
-  <zorder>pushButtonGo3</zorder>
-  <zorder>pushButtonGo4</zorder>
-  <zorder>keySequenceEdit</zorder>
-  <zorder>dateEdit</zorder>
-  <zorder>dateTimeEdit</zorder>
   <zorder>textBrowser</zorder>
   <zorder>checkBox</zorder>
   <zorder>checkBox_2</zorder>
+  <zorder>spinBox</zorder>
+  <zorder>label1111</zorder>
+  <zorder>label2222</zorder>
  </widget>
  <resources>
   <include location="res.qrc"/>

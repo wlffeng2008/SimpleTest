@@ -31,28 +31,33 @@ int GenMessageBox(QWidget *parent,const QString&strTitle,const QString&strMsg)
     static bool set=false ;
     static QMessageBox msgBox(parent);
     msgBox.setParent(parent) ;
-    if(!set)
-    {
-        set = true ;
-        QLabel *labelIcon = msgBox.findChild<QLabel*>("qt_msgboxex_icon_label");
-        labelIcon->setFixedSize(40,40) ;
-
-        QTimer::singleShot(50, &msgBox, [&]() {
-            msgBox.setMinimumWidth(400) ;
-            msgBox.setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Expanding);
-            QLabel *label = msgBox.findChild<QLabel*>("qt_msgbox_label");
-            label->setFixedSize(300,240);
-            label->setMinimumSize(300,240) ;
-            label->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Expanding);
-            label->setAlignment(Qt::AlignTop|Qt::AlignLeft) ;
-            label->setWordWrap(true);
-            label->adjustSize();
-        });
-    }
-
     msgBox.setText(strMsg);
     msgBox.setWindowTitle(strTitle) ;
     msgBox.setIcon(QMessageBox::Question) ;
+    if(!set)
+    {
+        //set = true ;
+        QLabel *labelIcon = msgBox.findChild<QLabel*>("qt_msgboxex_icon_label");
+        labelIcon->setFixedSize(40,40) ;
+
+        QTimer::singleShot(20, &msgBox, [&]() {
+            //msgBox.setMinimumWidth(400) ;
+            msgBox.setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Expanding);
+            QLabel *label = msgBox.findChild<QLabel*>("qt_msgbox_label");
+            label->setStyleSheet("QLabel{background-color: gray;}");
+            label->setAlignment(Qt::AlignTop|Qt::AlignLeft) ;
+            //label->setMinimumWidth(400);
+            label->setMinimumSize(300,140) ;
+            label->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Expanding);
+            label->setWordWrap(true);
+            label->setText(strMsg) ;
+            //label->hide();
+            //label->show();
+            //label->adjustSize();
+        });
+    }
+    msgBox.adjustSize();
+
     return msgBox.exec();
 }
 
@@ -144,11 +149,11 @@ MainWindow::MainWindow(QWidget *parent)
     });
 
     connect(ui->pushButtonMsg1,&QPushButton::clicked,this,[=](){
-        GenMessageBox(this,"中央","<h1>中央人民政府中央人 民政府中央人民政府<br>中央人民政府中央人民政府</h1><br>国家主席") ;
+        GenMessageBox(this,"中央","中央人民政府中央人民政府中央人民政府中央人民政府中央人民政府国家主席!") ;
     }) ;
 
     connect(ui->pushButtonMsg2,&QPushButton::clicked,this,[=](){
-        GenMessageBox(this,"提示","确定要退出吗1？确定要退出吗2？确定要退出吗3？确定要退出吗4？确定要退出吗5？\n确定要退出吗6？\n确定要退出吗7？\n确定要退出吗8？\n确定要退出吗？\n确定要退出吗？\n确定要退出吗？\n确定要退出吗？\n确定要退出吗？\n") ;
+        GenMessageBox(this,"提示","确定要退出吗1？确定要退出吗2？确定要退出吗3？确定要退出吗4？确定要退出吗5？\n确定要退出吗6？\n确定要退出吗7？\n确定要退出吗8？\n确定要退出吗？\n确定要退出吗？\n确定要退出吗？\n确定要退出吗？\n确定要退出吗？\n确定要退出吗？------------------------") ;
     }) ;
 
     {
@@ -178,7 +183,7 @@ MainWindow::MainWindow(QWidget *parent)
         image.save("D:/radioUncheck.png") ;
     }
 
-    QImage image(1024, 600, QImage::Format_ARGB32);
+    QImage image(1600, 300, QImage::Format_ARGB32);
     image.fill(Qt::transparent);  // 填充完全透明背景
 
     QPainter painter(&image);
@@ -195,7 +200,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     QFont font = this->font() ;
     font.setPointSize(200) ;
-    font.setFamily("仿宋");
+    font.setFamily("楷体");
     font.setBold(true) ;
     //font.setItalic(true) ;
     painter.setFont(font) ;
