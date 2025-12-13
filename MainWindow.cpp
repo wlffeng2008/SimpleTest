@@ -81,7 +81,7 @@ MainWindow::MainWindow(QWidget *parent)
         strName = "MSVC2017";
 #endif
 
-        strBuild = QString("使用 %1 或更高版本编译, 版本号: %2").arg(strName).arg(_MSC_VER)  ;
+        strBuild = QString("使用 %1 或更高版本编译, 版本号: %2").arg(strName).arg(_MSC_VER);
 
 #else
         strBuild = "非 MSVC 编译(如 MinGW, GCC 等)";
@@ -113,7 +113,6 @@ MainWindow::MainWindow(QWidget *parent)
         settings.setValue("DarkMode", true);
         settings.setValue("FontSize", 12);
         settings.endGroup();
-
 
         settings.beginGroup("Preferences/q1/123");
         settings.setValue("DarkMode", true);
