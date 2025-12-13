@@ -81,7 +81,7 @@ MainWindow::MainWindow(QWidget *parent)
         strName = "MSVC2017";
 #endif
 
-        strBuild = QString("使用 %1 或更高版本编译, 版本号: %2").arg(strName).arg(_MSC_VER)  ;
+        strBuild = QString("使用 %1 或更高版本编译, 版本号: %2").arg(strName).arg(_MSC_VER);
 
 #else
         strBuild = "非 MSVC 编译(如 MinGW, GCC 等)";
@@ -99,7 +99,7 @@ MainWindow::MainWindow(QWidget *parent)
         });
 
         connect(app,&MyEasyApp::onMouseEvent,this,[=](QObject *receiver,QMouseEvent *mEvent){
-          qDebug() << "全局鼠标:" <<  receiver << mEvent->type() << mEvent->globalPosition();
+            qDebug() << "全局鼠标:" <<  receiver << mEvent->type() << mEvent->globalPosition();
         });
     }
 
@@ -114,10 +114,20 @@ MainWindow::MainWindow(QWidget *parent)
         settings.setValue("FontSize", 12);
         settings.endGroup();
 
-
         settings.beginGroup("Preferences/q1/123");
         settings.setValue("DarkMode", true);
         settings.setValue("FontSize", 15);
+        settings.endGroup();
+
+
+        settings.beginGroup("Preferences");
+        settings.setValue("DarkMode11", true);
+        settings.setValue("FontSize21", 15);
+        settings.endGroup();
+
+        settings.beginGroup("Preferences/q1");
+        settings.setValue("DarkMode12", true);
+        settings.setValue("FontSize12", 15);
         settings.endGroup();
 
         // 读取注册表
@@ -348,7 +358,7 @@ QCheckBox::indicator:indeterminate{
 
     )") ;
 
-    qApp->setStyleSheet(strStyle) ;
+    //qApp->setStyleSheet(strStyle) ;
 
     QVBoxLayout *pLay0 = new QVBoxLayout(ui->groupBox) ;
     pLay0->setAlignment(Qt::AlignTop) ;
@@ -495,7 +505,7 @@ QCheckBox::indicator:indeterminate{
     //     qDebug() << "全局Shift+Space触发";
     // });
 
-    //ui->graphicsView->setImage("D:/bg.png") ;
+    ui->graphicsView->setImage("D:/bg.png") ;
     ui->graphicsView->hide() ;
     ui->textEdit->hide() ;
 
@@ -510,6 +520,8 @@ QCheckBox::indicator:indeterminate{
     header->resizeSection(0,150) ;
     header->setSectionResizeMode(1,QHeaderView::Fixed);
     header->resizeSection(1,150) ;
+
+    qApp->installEventFilter(this);
 }
 
 MainWindow::~MainWindow()
@@ -519,9 +531,28 @@ MainWindow::~MainWindow()
 
 bool MainWindow::eventFilter(QObject *editor, QEvent *event)
 {
+    return QMainWindow::eventFilter(editor, event);
+    // 1. 捕获鼠标按下事件（全局）
+    if (event->type() == QEvent::MouseButtonPress) {
+        QMouseEvent *mouseEvent = static_cast<QMouseEvent*>(event);
+        // 获取全局鼠标坐标（屏幕坐标，非窗口相对坐标）
+        QPoint globalPos = mouseEvent->globalPos();
+        // 获取按下的按键（左键/右键/中键）
+        Qt::MouseButton button = mouseEvent->button();
+
+        qDebug() << "[全局鼠标按下] 坐标：" << globalPos
+                 << " 按键：" << (button == Qt::LeftButton ? "左键" :
+                                      button == Qt::RightButton ? "右键" : "中键")
+                 << " MainWindow是否激活：" << this->isActiveWindow();
+
+        // 你的业务逻辑（如记录坐标、执行操作）
+        // 注意：即使isActiveWindow()为false（失去焦点），仍能触发
+        return false;
+    }
+
     if(event->type() == QEvent::Enter)
     {
-        qDebug() << "QEvent::Enter" ;
+        // qDebug() << "QEvent::Enter" ;
         QApplication::setOverrideCursor(Qt::PointingHandCursor) ;
         return true ;
     }
@@ -532,7 +563,6 @@ bool MainWindow::eventFilter(QObject *editor, QEvent *event)
         return true ;
     }
 
-    return QMainWindow::eventFilter(editor, event);
 }
 
 

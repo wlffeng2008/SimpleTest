@@ -159,6 +159,28 @@
           </property>
          </widget>
         </item>
+        <item alignment="Qt::AlignmentFlag::AlignHCenter">
+         <widget class="MacroSquare" name="frame">
+          <property name="minimumSize">
+           <size>
+            <width>50</width>
+            <height>50</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>50</width>
+            <height>50</height>
+           </size>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::Shape::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Shadow::Raised</enum>
+          </property>
+         </widget>
+        </item>
         <item>
          <widget class="KeyboardButton" name="pushButton_3">
           <property name="text">
@@ -237,14 +259,20 @@
  </widget>
  <customwidgets>
   <customwidget>
+   <class>KeyboardButton</class>
+   <extends>QPushButton</extends>
+   <header>keyboardbutton.h</header>
+  </customwidget>
+  <customwidget>
    <class>CustumGraphicsView</class>
    <extends>QGraphicsView</extends>
    <header>custumgraphicsview.h</header>
   </customwidget>
   <customwidget>
-   <class>KeyboardButton</class>
-   <extends>QPushButton</extends>
-   <header>keyboardbutton.h</header>
+   <class>MacroSquare</class>
+   <extends>QFrame</extends>
+   <header location="global">macrosquare.h</header>
+   <container>1</container>
   </customwidget>
  </customwidgets>
  <resources/>

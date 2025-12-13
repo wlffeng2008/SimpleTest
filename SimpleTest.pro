@@ -22,6 +22,8 @@ SOURCES += \
     DialogMotionCtrl.cpp \
     DialogScrollTest.cpp \
     LinearFixing1.cpp \
+    MacroSquare.cpp \
+    SuperLabel.cpp \
     keyboardbutton.cpp \
     main.cpp \
     MainWindow.cpp
@@ -33,14 +35,17 @@ HEADERS += \
     DialogMotionCtrl.h \
     DialogScrollTest.h \
     LinearFixing1.h \
+    MacroSquare.h \
     MainWindow.h \
     MyEasyApp.h \
+    SuperLabel.h \
     keyboardbutton.h
 
 FORMS += \
     DialogChart.ui \
     DialogMotionCtrl.ui \
     DialogScrollTest.ui \
+    MacroSquare.ui \
     MainWindow.ui
 
 TRANSLATIONS += \

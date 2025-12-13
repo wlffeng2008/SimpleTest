@@ -18,8 +18,8 @@ public:
     void setClickIndecator(bool click);
 
 signals:
-    void checkStateChanged(int nIndex,bool bChecked);
-    void checkRectChanged(int index,const QRect&rect) const;
+    void checkStateChanged(int nCol,bool bChecked);
+    void checkRectChanged(int nCol,const QRect&rect) const;
 
 protected:
     void paintSection(QPainter *painter, const QRect &rect, int nCol) const override;
