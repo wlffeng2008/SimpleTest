@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>811</width>
-    <height>586</height>
+    <width>1093</width>
+    <height>719</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -69,7 +69,7 @@
      <x>9</x>
      <y>95</y>
      <width>385</width>
-     <height>471</height>
+     <height>617</height>
     </rect>
    </property>
    <property name="widgetResizable">
@@ -81,7 +81,7 @@
       <x>0</x>
       <y>0</y>
       <width>383</width>
-      <height>469</height>
+      <height>615</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
@@ -124,7 +124,7 @@
     <enum>QTabWidget::TabPosition::South</enum>
    </property>
    <property name="currentIndex">
-    <number>2</number>
+    <number>3</number>
    </property>
    <property name="documentMode">
     <bool>false</bool>
@@ -182,7 +182,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
     <rect>
      <x>424</x>
      <y>130</y>
-     <width>40</width>
+     <width>91</width>
      <height>20</height>
     </rect>
    </property>
@@ -195,7 +195,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
     <rect>
      <x>568</x>
      <y>132</y>
-     <width>40</width>
+     <width>93</width>
      <height>20</height>
     </rect>
    </property>
@@ -249,7 +249,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
      <x>416</x>
      <y>174</y>
      <width>189</width>
-     <height>77</height>
+     <height>91</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -277,8 +277,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
   <widget class="QLabel" name="label1111">
    <property name="geometry">
     <rect>
-     <x>654</x>
-     <y>476</y>
+     <x>738</x>
+     <y>468</y>
      <width>60</width>
      <height>60</height>
     </rect>
@@ -311,8 +311,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
   <widget class="QLabel" name="label2222">
    <property name="geometry">
     <rect>
-     <x>534</x>
-     <y>478</y>
+     <x>636</x>
+     <y>476</y>
      <width>100</width>
      <height>100</height>
     </rect>
@@ -339,8 +339,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
   <widget class="MacroSquare" name="frame_2">
    <property name="geometry">
     <rect>
-     <x>666</x>
-     <y>210</y>
+     <x>624</x>
+     <y>200</y>
      <width>50</width>
      <height>50</height>
     </rect>
@@ -364,6 +364,22 @@ li.checked::marker { content: &quot;\2612&quot;; }
     <enum>QFrame::Shadow::Raised</enum>
    </property>
   </widget>
+  <widget class="QLabel" name="label3333">
+   <property name="geometry">
+    <rect>
+     <x>728</x>
+     <y>202</y>
+     <width>44</width>
+     <height>60</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>TextLabel</string>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
   <zorder>layoutWidget</zorder>
   <zorder>layoutWidget</zorder>
   <zorder>tabWidget</zorder>
@@ -376,6 +392,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
   <zorder>label1111</zorder>
   <zorder>label2222</zorder>
   <zorder>frame_2</zorder>
+  <zorder>label3333</zorder>
  </widget>
  <customwidgets>
   <customwidget>

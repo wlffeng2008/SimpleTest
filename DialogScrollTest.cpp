@@ -34,6 +34,11 @@ DialogScrollTest::DialogScrollTest(QWidget *parent)
         ui->scrollAreaWidgetContents_2->layout()->addWidget(button) ;
     }
 
+    QImage svgImg = QImage("D:\\fa-349.svg") ;
+
+    qDebug() << svgImg;
+    ui->label3333->setPixmap(QPixmap::fromImage(svgImg));
+
     connect(ui->pushButtonGo1,&QPushButton::clicked,this,[=]{ui->scrollArea_2->ensureWidgetVisible(m_flags[0]);}) ;
     connect(ui->pushButtonGo2,&QPushButton::clicked,this,[=]{ui->scrollArea_2->ensureWidgetVisible(m_flags[1]);}) ;
     connect(ui->pushButtonGo3,&QPushButton::clicked,this,[=]{ui->scrollArea_2->ensureWidgetVisible(m_flags[2]);}) ;
