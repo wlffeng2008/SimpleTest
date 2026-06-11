@@ -607,3 +607,137 @@ void MainWindow::on_pushButtonSavePng_clicked()
     Png.save("d:/mainwindow.png") ;
 }
 
+#include <mmdeviceapi.h>
+#include <endpointvolume.h>
+#include <objbase.h>
+#pragma comment(lib, "ole32.lib")
+#pragma comment(lib, "mmdevapi.lib")
+
+bool setMasterVolume(float fVol)
+{
+    CoInitialize(NULL);
+    IMMDeviceEnumerator *pEnum = nullptr;
+    if (FAILED(CoCreateInstance(
+            __uuidof(MMDeviceEnumerator), NULL, CLSCTX_ALL,
+            __uuidof(IMMDeviceEnumerator), (void**)&pEnum)))
+    {
+        CoUninitialize();
+        return false;
+    }
+
+    IMMDevice *pDev = nullptr;
+    if (FAILED(pEnum->GetDefaultAudioEndpoint(eRender, eConsole, &pDev)))
+    {
+        pEnum->Release();
+        CoUninitialize();
+        return false;
+    }
+
+    IAudioEndpointVolume *pVol = nullptr;
+    if (FAILED(pDev->Activate(
+            __uuidof(IAudioEndpointVolume), CLSCTX_ALL, NULL, (void**)&pVol)))
+    {
+        pDev->Release();
+        pEnum->Release();
+        CoUninitialize();
+        return false;
+    }
+
+    pVol->SetMasterVolumeLevelScalar(fVol, NULL);
+
+    pVol->Release();
+    pDev->Release();
+    pEnum->Release();
+    CoUninitialize();
+    return true;
+}
+
+// 获取当前音量 0.0~1.0
+float getMasterVolume()
+{
+    float fVol = 0.0f;
+    CoInitialize(NULL);
+    IMMDeviceEnumerator *pEnum = nullptr;
+    if (SUCCEEDED(CoCreateInstance(
+            __uuidof(MMDeviceEnumerator), NULL, CLSCTX_ALL,
+            __uuidof(IMMDeviceEnumerator), (void**)&pEnum)))
+    {
+        IMMDevice *pDev = nullptr;
+        if (SUCCEEDED(pEnum->GetDefaultAudioEndpoint(eRender, eConsole, &pDev)))
+        {
+            IAudioEndpointVolume *pVol = nullptr;
+            if (SUCCEEDED(pDev->Activate(
+                    __uuidof(IAudioEndpointVolume), CLSCTX_ALL, NULL, (void**)&pVol)))
+            {
+                pVol->GetMasterVolumeLevelScalar(&fVol);
+                pVol->Release();
+            }
+            pDev->Release();
+        }
+        pEnum->Release();
+    }
+    CoUninitialize();
+    return fVol;
+}
+
+void sendWinPlus()
+{
+    INPUT inputs[4] = {{0}};
+
+    inputs[0].type = INPUT_KEYBOARD;
+    inputs[0].ki.wVk = VK_LWIN;
+
+    inputs[1].type = INPUT_KEYBOARD;
+    inputs[1].ki.wVk = VK_OEM_PLUS; // 主键盘 '+'
+
+    inputs[2].type = INPUT_KEYBOARD;
+    inputs[2].ki.wVk = VK_OEM_PLUS;
+    inputs[2].ki.dwFlags = KEYEVENTF_KEYUP;
+
+    inputs[3].type = INPUT_KEYBOARD;
+    inputs[3].ki.wVk = VK_LWIN;
+    inputs[3].ki.dwFlags = KEYEVENTF_KEYUP;
+
+
+    INT ret = SendInput(4, inputs, sizeof(INPUT));
+    qDebug() << ret;
+}
+
+#define MONITOR_CONFIGURATION_API 1   // ⭐ 关键
+
+#include <windows.h>
+#include <physicalmonitorenumerationapi.h>
+#include <highlevelmonitorconfigurationapi.h>
+#pragma comment(lib, "dxva2.lib")
+
+void setMonitorBrightness(DWORD brightness)
+{
+    HMONITOR hMonitor = MonitorFromWindow(nullptr, MONITOR_DEFAULTTOPRIMARY);
+
+    DWORD dwCount = 0;
+    GetNumberOfPhysicalMonitorsFromHMONITOR(hMonitor, &dwCount);
+    if (dwCount == 0) return;
+
+    PHYSICAL_MONITOR* pMons =
+        new PHYSICAL_MONITOR[dwCount];
+
+    GetPhysicalMonitorsFromHMONITOR(hMonitor, dwCount, pMons);
+
+    HANDLE hPhys = pMons[0].hPhysicalMonitor;
+
+    // brightness: 0–100
+    SetMonitorBrightness(hPhys, brightness);
+
+    DestroyPhysicalMonitors(dwCount, pMons);
+    delete[] pMons;
+}
+
+void MainWindow::on_pushButton_4_clicked()
+{
+    setMonitorBrightness(12);
+    QTimer::singleShot(500,this,[=]{
+        sendWinPlus();
+        setMasterVolume(0.6);
+    });
+}
+

@@ -13,7 +13,7 @@ QMAKE_PROJECT_DEPTH = 0
 
 include(XColorDialog/XColorDialog.pri)
 INCLUDEPATH+=$$PWD/XColorDialog
-
+LIBS += User32.lib
 
 SOURCES += \
     CheckBoxHeaderView.cpp \
