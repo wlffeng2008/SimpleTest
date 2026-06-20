@@ -16,6 +16,7 @@ INCLUDEPATH+=$$PWD/XColorDialog
 LIBS += User32.lib
 
 SOURCES += \
+    CapsuleSlider.cpp \
     CheckBoxHeaderView.cpp \
     CustumGraphicsView.cpp \
     DialogChart.cpp \
@@ -29,6 +30,7 @@ SOURCES += \
     MainWindow.cpp
 
 HEADERS += \
+    CapsuleSlider.h \
     CheckBoxHeaderView.h \
     CustumGraphicsView.h \
     DialogChart.h \

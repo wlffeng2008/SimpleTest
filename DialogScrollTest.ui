@@ -277,8 +277,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
   <widget class="QLabel" name="label1111">
    <property name="geometry">
     <rect>
-     <x>738</x>
-     <y>468</y>
+     <x>734</x>
+     <y>504</y>
      <width>60</width>
      <height>60</height>
     </rect>
@@ -311,7 +311,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
   <widget class="QLabel" name="label2222">
    <property name="geometry">
     <rect>
-     <x>636</x>
+     <x>576</x>
      <y>476</y>
      <width>100</width>
      <height>100</height>
@@ -380,6 +380,32 @@ li.checked::marker { content: &quot;\2612&quot;; }
     <bool>true</bool>
    </property>
   </widget>
+  <widget class="CapsuleSlider" name="verticalSlider">
+   <property name="geometry">
+    <rect>
+     <x>986</x>
+     <y>369</y>
+     <width>22</width>
+     <height>227</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Orientation::Vertical</enum>
+   </property>
+  </widget>
+  <widget class="CapsuleSlider" name="horizontalSlider">
+   <property name="geometry">
+    <rect>
+     <x>484</x>
+     <y>636</y>
+     <width>395</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Orientation::Horizontal</enum>
+   </property>
+  </widget>
   <zorder>layoutWidget</zorder>
   <zorder>layoutWidget</zorder>
   <zorder>tabWidget</zorder>
@@ -393,6 +419,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
   <zorder>label2222</zorder>
   <zorder>frame_2</zorder>
   <zorder>label3333</zorder>
+  <zorder>verticalSlider</zorder>
+  <zorder>horizontalSlider</zorder>
  </widget>
  <customwidgets>
   <customwidget>
@@ -400,6 +428,11 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <extends>QFrame</extends>
    <header location="global">macrosquare.h</header>
    <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>CapsuleSlider</class>
+   <extends>QSlider</extends>
+   <header>capsuleslider.h</header>
   </customwidget>
  </customwidgets>
  <resources>
