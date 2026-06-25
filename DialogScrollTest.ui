@@ -383,10 +383,10 @@ li.checked::marker { content: &quot;\2612&quot;; }
   <widget class="CapsuleSlider" name="verticalSlider">
    <property name="geometry">
     <rect>
-     <x>986</x>
-     <y>369</y>
-     <width>22</width>
-     <height>227</height>
+     <x>978</x>
+     <y>138</y>
+     <width>24</width>
+     <height>379</height>
     </rect>
    </property>
    <property name="orientation">
@@ -396,11 +396,23 @@ li.checked::marker { content: &quot;\2612&quot;; }
   <widget class="CapsuleSlider" name="horizontalSlider">
    <property name="geometry">
     <rect>
-     <x>484</x>
-     <y>636</y>
-     <width>395</width>
-     <height>35</height>
+     <x>418</x>
+     <y>632</y>
+     <width>591</width>
+     <height>24</height>
     </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>0</width>
+     <height>24</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>16777215</width>
+     <height>24</height>
+    </size>
    </property>
    <property name="orientation">
     <enum>Qt::Orientation::Horizontal</enum>
