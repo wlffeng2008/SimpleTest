@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1093</width>
-    <height>719</height>
+    <width>1246</width>
+    <height>905</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -69,7 +69,7 @@
      <x>9</x>
      <y>95</y>
      <width>385</width>
-     <height>617</height>
+     <height>791</height>
     </rect>
    </property>
    <property name="widgetResizable">
@@ -81,7 +81,7 @@
       <x>0</x>
       <y>0</y>
       <width>383</width>
-      <height>615</height>
+      <height>789</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
@@ -418,6 +418,146 @@ li.checked::marker { content: &quot;\2612&quot;; }
     <enum>Qt::Orientation::Horizontal</enum>
    </property>
   </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>430</x>
+     <y>688</y>
+     <width>60</width>
+     <height>15</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>URL:</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>430</x>
+     <y>718</y>
+     <width>60</width>
+     <height>15</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Save:</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEditUrl">
+   <property name="geometry">
+    <rect>
+     <x>506</x>
+     <y>688</y>
+     <width>453</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>https://localhost/windows2000-kb835732-x86-deu.exe</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEditFile">
+   <property name="geometry">
+    <rect>
+     <x>506</x>
+     <y>716</y>
+     <width>453</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>D:\test1234.exe</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButtonDownload">
+   <property name="geometry">
+    <rect>
+     <x>506</x>
+     <y>756</y>
+     <width>135</width>
+     <height>33</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Do Download</string>
+   </property>
+  </widget>
+  <widget class="QProgressBar" name="progressBar">
+   <property name="geometry">
+    <rect>
+     <x>660</x>
+     <y>758</y>
+     <width>299</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="value">
+    <number>24</number>
+   </property>
+  </widget>
+  <widget class="QSpinBox" name="spinBoxTest">
+   <property name="geometry">
+    <rect>
+     <x>954</x>
+     <y>542</y>
+     <width>135</width>
+     <height>33</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>14</pointsize>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QSpinBox {
+    padding-left: 10px;
+    padding-right: 10px;
+	background-color:white;
+	border:1px solid #a1a1a1;
+    text-align:center;
+}
+QSpinBox::up-button {
+    subcontrol-position: right;
+    right: 5px; /* 向左偏移（实验性，效果有限）*/
+
+    width: 18px;
+    height: 18px; 
+    subcontrol-origin: border;        /* ✅ 必须设，否则尺寸无效 */
+
+	background-color:green;
+}
+QSpinBox::down-button {
+    subcontrol-position: left;
+    left: 5px;
+    width: 18px;
+    height: 18px; 
+    subcontrol-origin: border;        /* ✅ 必须设，否则尺寸无效 */
+
+	background-color:red;
+}</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignmentFlag::AlignCenter</set>
+   </property>
+   <property name="readOnly">
+    <bool>false</bool>
+   </property>
+   <property name="minimum">
+    <number>-200</number>
+   </property>
+   <property name="maximum">
+    <number>200</number>
+   </property>
+  </widget>
   <zorder>layoutWidget</zorder>
   <zorder>layoutWidget</zorder>
   <zorder>tabWidget</zorder>
@@ -433,6 +573,13 @@ li.checked::marker { content: &quot;\2612&quot;; }
   <zorder>label3333</zorder>
   <zorder>verticalSlider</zorder>
   <zorder>horizontalSlider</zorder>
+  <zorder>label</zorder>
+  <zorder>label_2</zorder>
+  <zorder>lineEditUrl</zorder>
+  <zorder>lineEditFile</zorder>
+  <zorder>pushButtonDownload</zorder>
+  <zorder>progressBar</zorder>
+  <zorder>spinBoxTest</zorder>
  </widget>
  <customwidgets>
   <customwidget>

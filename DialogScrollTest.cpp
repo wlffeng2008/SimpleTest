@@ -2,6 +2,7 @@
 #include "ui_DialogScrollTest.h"
 
 #include <QPushButton>
+#include <QMessageBox>
 
 DialogScrollTest::DialogScrollTest(QWidget *parent)
     : QDialog(parent)
@@ -144,10 +145,67 @@ QAbstractSpinBox::down-arrow:hover {
 }*/
 
 )");
-    setStyleSheet(strSpinBoxStyle);
+    //setStyleSheet(strSpinBoxStyle);
+
+    ui->spinBoxTest->setStyleSheet(R"(
+QSpinBox {
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color:white;
+    border:1px solid #a1a1a1;
+    text-align:center;
+}
+QSpinBox::up-button {
+    subcontrol-position: right;
+    right: 5px; /* 向左偏移（实验性，效果有限）*/
+
+    width: 18px;
+    height: 18px;
+    subcontrol-origin: border;        /* ✅ 必须设，否则尺寸无效 */
+
+    background-color:green;
+}
+QSpinBox::down-button {
+    subcontrol-position: left;
+    left: 5px;
+    width: 18px;
+    height: 18px;
+    subcontrol-origin: border;        /* ✅ 必须设，否则尺寸无效 */
+
+    background-color:red;
+}
+
+)");
+
+    m_downloader =new Downloader(this);
+
+    connect(m_downloader, &Downloader::progressChanged, this, [=](int percent){
+
+        ui->progressBar->setValue(percent);
+    });
+    connect(m_downloader, &Downloader::finished, this, [=]{
+
+    });
+    connect(m_downloader, &Downloader::errorOccurred, this, [=](const QString &err){
+        qDebug() << err;
+    });
 }
 
 DialogScrollTest::~DialogScrollTest()
 {
     delete ui;
 }
+
+void DialogScrollTest::on_pushButtonDownload_clicked()
+{
+
+    QString url = ui->lineEditUrl->text().trimmed();
+    QString savePath = ui->lineEditFile->text().trimmed();
+    if (url.isEmpty() || savePath.isEmpty())
+    {
+        QMessageBox::warning(this, "提示", "请填写下载地址和保存路径");
+        return;
+    }
+    m_downloader->startDownload(url, savePath);
+}
+

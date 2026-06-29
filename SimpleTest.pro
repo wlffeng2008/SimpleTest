@@ -22,6 +22,7 @@ SOURCES += \
     DialogChart.cpp \
     DialogMotionCtrl.cpp \
     DialogScrollTest.cpp \
+    Downloader.cpp \
     LinearFixing1.cpp \
     MacroSquare.cpp \
     SuperLabel.cpp \
@@ -36,6 +37,7 @@ HEADERS += \
     DialogChart.h \
     DialogMotionCtrl.h \
     DialogScrollTest.h \
+    Downloader.h \
     LinearFixing1.h \
     MacroSquare.h \
     MainWindow.h \
