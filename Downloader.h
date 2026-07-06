@@ -14,22 +14,16 @@ class Downloader : public QObject
 public:
     explicit Downloader(QObject *parent = nullptr);
     ~Downloader();
-
-    // 开始下载
+\
     void startDownload(const QString &url, const QString &savePath);
-    // 暂停
     void pause();
-    // 继续
     void resume();
-    // 取消
     void cancel();
 
 signals:
-    // 下载进度 0~100
     void progressChanged(int percent);
-    // 下载完成
+    void dataIn(const QByteArray&data);
     void finished(bool success, const QString &msg);
-    // 出错
     void errorOccurred(const QString &errMsg);
 
 private slots:
@@ -38,8 +32,8 @@ private slots:
     void downloadProgress(qint64 recv, qint64 total);
 
 private:
-    QNetworkAccessManager *m_manager;
-    QNetworkReply *m_reply;
+    QNetworkAccessManager *m_manager=nullptr;
+    QNetworkReply *m_reply=nullptr;
     QFile m_file;
     QString m_url;
     qint64 m_downloadedSize; // 已下载字节

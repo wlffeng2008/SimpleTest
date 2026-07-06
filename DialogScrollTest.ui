@@ -521,9 +521,10 @@ li.checked::marker { content: &quot;\2612&quot;; }
     <string notr="true">QSpinBox {
     padding-left: 10px;
     padding-right: 10px;
-	background-color:white;
-	border:1px solid #a1a1a1;
+	background-color:#F6F6F6;
+	border:2px solid #a1a1a1;
     text-align:center;
+	border-radius:8px;
 }
 QSpinBox::up-button {
     subcontrol-position: right;
@@ -531,18 +532,32 @@ QSpinBox::up-button {
 
     width: 18px;
     height: 18px; 
-    subcontrol-origin: border;        /* ✅ 必须设，否则尺寸无效 */
+    subcontrol-origin: border; 
 
-	background-color:green;
+    border: none;
+    background-color: transparent;
+    background-image: url(:/images/plug-normal.png);
+    background-repeat: no-repeat;
+    background-position: center;
 }
 QSpinBox::down-button {
     subcontrol-position: left;
     left: 5px;
     width: 18px;
     height: 18px; 
-    subcontrol-origin: border;        /* ✅ 必须设，否则尺寸无效 */
+    subcontrol-origin: border; 
 
-	background-color:red;
+    border: none;
+    background-color: transparent;
+    background-image: url(:/images/minus-normal.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+QSpinBox::up-button:disabled{
+    background-image: url(:/images/plug-disabled.png);
+}
+QSpinBox::down-button:disabled{
+    background-image: url(:/images/minus-disabled.png);
 }</string>
    </property>
    <property name="alignment">

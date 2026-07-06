@@ -1,6 +1,5 @@
 #include "Downloader.h"
-#include <QHttpMultiPart>
-#include <QFileInfo>
+
 #include <QDebug>
 
 Downloader::Downloader(QObject *parent)
@@ -26,15 +25,18 @@ void Downloader::startDownload(const QString &url, const QString &savePath)
     m_isPaused = false;
     m_isCanceled = false;
 
-    m_file.setFileName(savePath);
-    // 文件不存在新建，存在则追加（断点）
-    if (!m_file.open(QIODevice::ReadWrite | QIODevice::Append))
+    if(!savePath.isEmpty())
     {
-        emit errorOccurred("无法打开文件：" + m_file.errorString());
-        return;
+        m_file.setFileName(savePath);
+        // 文件不存在新建，存在则追加（断点）
+        if (!m_file.open(QIODevice::ReadWrite | QIODevice::Append))
+        {
+            emit errorOccurred("无法打开文件：" + m_file.errorString());
+            //return;
+        }
     }
-    // 获取本地已下载大小
-    m_downloadedSize = m_file.size();
+    if(m_file.isOpen())
+        m_downloadedSize = m_file.size();
     resume();
 }
 
@@ -52,7 +54,7 @@ void Downloader::pause()
 void Downloader::resume()
 {
     if (m_isCanceled) return;
-    if (!m_file.isOpen()) return;
+    //if (!m_file.isOpen()) return;
 
     m_isPaused = false;
     QNetworkRequest req((QUrl(m_url)));
@@ -89,8 +91,10 @@ void Downloader::onReadyRead()
 {
     if (!m_reply || m_isPaused || m_isCanceled)
         return;
-    // 写入文件尾部
-    m_file.write(m_reply->readAll());
+    QByteArray read=m_reply->readAll();
+    emit dataIn(read);
+    if(m_file.isOpen())
+        m_file.write(read);
 }
 
 void Downloader::downloadProgress(qint64 recv, qint64 total)
@@ -110,8 +114,11 @@ void Downloader::onReplyFinished()
     // 写入剩余缓存数据
     if (reply->error() == QNetworkReply::NoError)
     {
-        m_file.write(reply->readAll());
-        m_file.close();
+        if(m_file.isOpen())
+        {
+            m_file.write(reply->readAll());
+            m_file.close();
+        }
         emit finished(true, "下载完成");
     }
     else

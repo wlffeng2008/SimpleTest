@@ -6,5 +6,9 @@
         <file>images/mt1.png</file>
         <file>images/640M.webp</file>
         <file>images/640O.webp</file>
+        <file>images/minus-disabled.png</file>
+        <file>images/minus-normal.png</file>
+        <file>images/plug-disabled.png</file>
+        <file>images/plug-normal.png</file>
     </qresource>
 </RCC>
