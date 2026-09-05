@@ -25,6 +25,7 @@
 #include "MyEasyApp.h"
 #include <QKeyEvent>
 #include <QMouseEvent>
+#include <QPainterPath>
 
 int GenMessageBox(QWidget *parent,const QString&strTitle,const QString&strMsg)
 {
@@ -506,8 +507,9 @@ QCheckBox::indicator:indeterminate{
     // });
 
     ui->graphicsView->setImage("D:/bg.png") ;
-    ui->graphicsView->hide() ;
-    ui->textEdit->hide() ;
+    qDebug() << ui->graphicsView->scene();
+    //ui->graphicsView->hide() ;
+    //ui->textEdit->hide() ;
 
     CheckBoxHeaderView *pNH = new CheckBoxHeaderView(Qt::Horizontal,ui->tableView) ;
     pNH->setCheckCol(1) ;
@@ -518,10 +520,167 @@ QCheckBox::indicator:indeterminate{
     header->setSectionResizeMode(QHeaderView::Stretch);
     header->setSectionResizeMode(0,QHeaderView::Fixed);
     header->resizeSection(0,150) ;
-    header->setSectionResizeMode(1,QHeaderView::Fixed);
-    header->resizeSection(1,150) ;
+    header->setSectionResizeMode(3,QHeaderView::Fixed);
+    header->resizeSection(3,150) ;
+    header->setSectionResizeMode(4,QHeaderView::Fixed);
+    header->resizeSection(4,150) ;
 
     qApp->installEventFilter(this);
+    {
+        QImage imgFrm(600,600,QImage::Format_ARGB32);
+        QRect rect = imgFrm.rect();
+        imgFrm.fill(Qt::transparent);
+        QPainter painter(&imgFrm);
+        painter.setRenderHint(QPainter::Antialiasing); // 抗锯齿，必须打开，圆弧才平滑
+
+        painter.setPen(Qt::NoPen);
+
+        {
+            QPainterPath path;
+            QRect a1 = QRect(0,200,200,200);
+            QRect a2 = QRect(400,200,200,200);
+            //painter.drawArc(a1,0,180*16);
+            //painter.drawArc(a2,0,-180*16);
+
+            QRect a3 = QRect(0,100,400,400);
+            QRect a4 = QRect(200,100,400,400);
+            //painter.drawArc(a3,0,180*16);
+            //painter.drawArc(a4,0,-180*16);
+
+            path.moveTo(0,300);
+            path.arcTo(a1,0,180);
+            path.arcTo(a2,0,-180);
+            path.arcTo(a3,0,180);
+            path.arcTo(a4,0,-180);
+            path.closeSubpath();
+            painter.setBrush(QColor(220,100,180));
+            painter.drawPath(path);
+
+            painter.setPen(QPen(Qt::darkCyan,2));
+            painter.drawArc(rect.adjusted(1,1,-1,-1),0,360*16);
+            imgFrm.save("D:/drawing0.png");
+        }
+
+        painter.setPen(Qt::NoPen);
+        {
+            QPainterPath path;
+            imgFrm.fill(Qt::transparent);
+            path.addRoundedRect(rect,300,300);
+            painter.setBrush(Qt::blue);
+            painter.drawPath(path);
+            path.clear();
+
+            QRect a1 = QRect(0,150,300,300);
+            QRect a2 = QRect(300,150,300,300);
+            //painter.drawArc(a1,0,180*16);
+            //painter.drawArc(a2,0,-180*16);
+
+            QRect a3 = QRect(0,0,600,600);
+            QRect a4 = QRect(200,100,400,400);
+            //painter.drawArc(a3,0,180*16);
+            //painter.drawArc(a4,0,-180*16);
+
+            path.moveTo(0,300);
+            path.arcTo(a1,0,180);
+            path.arcTo(a2,0,-180);
+            path.arcTo(a3,0,180);
+            //path.arcTo(a4,0,-180);
+            path.closeSubpath();
+            painter.setBrush(Qt::green);
+            painter.drawPath(path);
+
+            painter.setPen(QPen(Qt::darkCyan,2));
+            painter.drawArc(rect.adjusted(1,1,-1,-1),0,360*16);
+            imgFrm.save("D:/drawing1.png");
+        }
+
+        {
+            QImage img(600,600,QImage::Format_ARGB32);
+            img.fill(Qt::transparent);
+
+            QPainter painter(&img);
+            painter.setRenderHint(QPainter::Antialiasing);
+            QPainterPath path;
+
+            path.clear();
+            path.moveTo(600,0);
+            path.lineTo(300,0);
+            path.arcTo(QRect(0,0,600,600),90,90);
+            path.lineTo(0,600);
+            path.arcTo(QRect(0,0,1200,1200),180,-90);
+            qDebug() << "Path1:" <<path.currentPosition();
+            path.closeSubpath();
+
+            painter.setPen(Qt::NoPen);
+            painter.setBrush(Qt::blue);
+            painter.drawPath(path);
+
+            path.clear();
+            path.moveTo(0,600);
+            path.lineTo(300,600);
+            path.arcTo(QRect(0,0,600,600),-90,90);
+            path.lineTo(600,0);
+            path.arcTo(QRect(-600,-600,1200,1200),0,-90);
+            qDebug() << "Path2:" <<path.currentPosition();
+            path.closeSubpath();
+
+            painter.setBrush(Qt::red);
+            painter.drawPath(path);
+            img.save("d:/drawing2.png");
+        }
+
+
+        // // ==========1. 正圆：描边+填充着色==========
+        // QRect circleRect(20,20,120,120); // 外接矩形，宽高相同=正圆
+        // painter.setPen(QPen(Qt::darkBlue,2));    // 边框：深蓝色，2px
+        // painter.setBrush(QBrush(QColor(100,180,255))); // 填充浅蓝色（区域着色）
+        // painter.drawEllipse(circleRect);
+
+        // // ==========2. 上半圆：只有圆弧线，不填充==========
+        // QRect arcRect(180,20,120,120);
+        // painter.setPen(QPen(Qt::red,3));
+        // painter.setBrush(Qt::NoBrush); // 关闭填充，只画线
+        // // drawArc(矩形,起始角度,跨度角度) 单位 1/16°
+        // // 上半圆：从90° 逆时针转180° → 90*16，180*16
+        // painter.drawArc(arcRect, 90*16, 180*16);
+
+        // // ==========3. 下半圆（扇形填充着色，实心半圆）==========
+        // QRect semicircleRect(340,20,120,120);
+        // painter.setPen(QPen(Qt::darkGreen,2));
+        // painter.setBrush(QBrush(QColor(80,220,120))); // 填充绿色
+        // // drawPie：扇形，会闭合圆心，实现实心半圆
+        // painter.drawPie(semicircleRect, 270*16, 180*16);
+
+        // // ==========4. 左半圆、右半圆参考==========
+        // // 右半圆：0°起始，180°跨度 → drawPie(rect, 0*16, 180*16)
+        // // 左半圆：180°起始，180°跨度 → drawPie(rect,180*16,180*16)
+
+        // // ==========5. 圆环区域着色（两个圆相减）==========
+        // int cx = 80, cy = 220;
+        // int outerR = 70;
+        // int innerR = 40;
+        // painter.setPen(Qt::black);
+        // QPainterPath ringPath;
+        // // 外圆顺时针，内圆逆时针，形成镂空圆环
+        // ringPath.addEllipse(QPointF(cx,cy), outerR, outerR);
+        // ringPath.addEllipse(QPointF(cx,cy), innerR, innerR);
+        // painter.setBrush(QColor(255,160,60));
+        // painter.drawPath(ringPath);
+
+        // // ==========6. 任意圆弧闭合区域着色（自定义扇形）==========
+        // QPainterPath fanPath;
+        // QRect fanRect(200,220,140,140);
+        // fanPath.moveTo(fanRect.center()); // 移动到圆心
+        // fanPath.arcTo(fanRect, 30, 120);  // 圆弧：起始30度，扫过120度
+        // fanPath.closeSubpath();           // 闭合回圆心，形成扇形区域
+        // painter.setBrush(QColor(220,100,180));
+        // painter.setPen(Qt::NoPen);
+        // painter.drawPath(fanPath);
+
+
+
+        imgFrm.save("D:/drawing.png");
+    }
 }
 
 MainWindow::~MainWindow()
