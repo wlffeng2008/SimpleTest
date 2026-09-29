@@ -18,6 +18,7 @@ LIBS += User32.lib
 SOURCES += \
     CapsuleSlider.cpp \
     CheckBoxHeaderView.cpp \
+    ColorPicker.cpp \
     CustumGraphicsView.cpp \
     DialogChart.cpp \
     DialogMotionCtrl.cpp \
@@ -33,6 +34,7 @@ SOURCES += \
 HEADERS += \
     CapsuleSlider.h \
     CheckBoxHeaderView.h \
+    ColorPicker.h \
     CustumGraphicsView.h \
     DialogChart.h \
     DialogMotionCtrl.h \

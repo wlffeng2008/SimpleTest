@@ -23,10 +23,12 @@ public:
             QMouseEvent *mEvent = static_cast<QMouseEvent*>(event);
             emit onMouseEvent(receiver,mEvent);
         }
+        transEvent(receiver, event);
         return QApplication::notify(receiver, event);
     }
 
 signals:
+    void transEvent(QObject *receiver, QEvent *event);
     void onKeyEvent(QObject *receiver,QKeyEvent *kEvent) ;
     void onMouseEvent(QObject *receiver,QMouseEvent *mEvent) ;
 };
