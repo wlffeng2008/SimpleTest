@@ -70,8 +70,6 @@ void CapsuleSlider::paintEvent(QPaintEvent *event)
         QRect progress = groove;
         int nPW = (value()-minimum())*w/(maximum() - minimum()) + hW/2;
         progress.setWidth(nPW);
-        p.setBrush(QColor("#409EFF"));
-
 
         QLinearGradient lg(0, 0, 1, 0);
         lg.setCoordinateMode(QGradient::ObjectBoundingMode);
@@ -85,7 +83,7 @@ void CapsuleSlider::paintEvent(QPaintEvent *event)
         int radius = handleRect.height() / 2;
         p.setBrush(QColor("#FFFFFF"));
         p.setPen(QPen(QColor("#409EFF"), 2));
-        p.drawRoundedRect(handleRect.adjusted(1,1,-1,-1), radius, radius);
+        p.drawRoundedRect(handleRect.adjusted(1,2,-1,-2), radius, radius);
     }
     else
     {
@@ -97,7 +95,12 @@ void CapsuleSlider::paintEvent(QPaintEvent *event)
         int nPH = (value()-minimum())*h/(maximum() - minimum()) + hH/2;
         progress.setBottom(groove.bottom());
         progress.setTop(height() - nPH);
-        p.setBrush(QColor("#409EFF"));
+
+        QLinearGradient lg(0, 0, 0, 1);
+        lg.setCoordinateMode(QGradient::ObjectBoundingMode);
+        lg.setColorAt(0, QColor("#409EFF"));
+        lg.setColorAt(1, QColor("#E0E0FF"));
+        p.setBrush(QBrush(lg));
         p.drawRoundedRect(progress.adjusted(6,0,-6,0), 6, 6);
 
         handleRect.setTop(progress.top()-hH/2);

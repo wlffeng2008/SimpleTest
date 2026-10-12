@@ -13,12 +13,36 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">        QSlider::groove:horizontal { height: 10px; background: #DCDCDC; border-radius: 4px;}
+        QSlider::sub-page:horizontal { background: #3EA8FF;  border-radius: 4px;}
+        QSlider::handle:horizontal {
+            width: 16px;
+            height: 16px;
+            margin: -5px 0;
+            background: white;
+            border: 2px solid #3EA8FF;
+            border-radius: 10px; }
+
+        QSlider::groove:vertical { width: 10px; background: #3EA8FF;  border-radius: 4px; }
+        QSlider::sub-page:vertical { background: #DCDCDC;  border-radius: 4px; }
+        QSlider::handle:vertical {
+            width: 16px;
+            height: 16px;
+            margin: 0 -5px;
+            background: white;
+            border: 2px solid #3EA8FF;
+            border-radius: 10px; }
+
+        QSlider::handle:hover { background: #F0F0F0;}
+        QSlider::handle:pressed { background: #E0E0E0; border-color: #2D7FD1; }</string>
+  </property>
   <widget class="QScrollArea" name="scrollArea">
    <property name="geometry">
     <rect>
      <x>9</x>
      <y>9</y>
-     <width>779</width>
+     <width>1229</width>
      <height>71</height>
     </rect>
    </property>
@@ -36,7 +60,7 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>777</width>
+      <width>1227</width>
       <height>69</height>
      </rect>
     </property>
@@ -116,8 +140,8 @@
     <rect>
      <x>412</x>
      <y>92</y>
-     <width>385</width>
-     <height>28</height>
+     <width>823</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="tabPosition">
@@ -277,16 +301,16 @@ li.checked::marker { content: &quot;\2612&quot;; }
   <widget class="QLabel" name="label1111">
    <property name="geometry">
     <rect>
-     <x>734</x>
-     <y>504</y>
-     <width>60</width>
-     <height>60</height>
+     <x>808</x>
+     <y>454</y>
+     <width>200</width>
+     <height>200</height>
     </rect>
    </property>
    <property name="minimumSize">
     <size>
-     <width>60</width>
-     <height>60</height>
+     <width>200</width>
+     <height>200</height>
     </size>
    </property>
    <property name="maximumSize">
@@ -311,8 +335,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
   <widget class="QLabel" name="label2222">
    <property name="geometry">
     <rect>
-     <x>576</x>
-     <y>476</y>
+     <x>698</x>
+     <y>502</y>
      <width>100</width>
      <height>100</height>
     </rect>
@@ -367,9 +391,9 @@ li.checked::marker { content: &quot;\2612&quot;; }
   <widget class="QLabel" name="label3333">
    <property name="geometry">
     <rect>
-     <x>728</x>
+     <x>703</x>
      <y>202</y>
-     <width>44</width>
+     <width>69</width>
      <height>60</height>
     </rect>
    </property>
@@ -380,145 +404,133 @@ li.checked::marker { content: &quot;\2612&quot;; }
     <bool>true</bool>
    </property>
   </widget>
-  <widget class="CapsuleSlider" name="verticalSlider">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>978</x>
-     <y>138</y>
-     <width>24</width>
-     <height>379</height>
+     <x>412</x>
+     <y>700</y>
+     <width>820</width>
+     <height>185</height>
     </rect>
    </property>
-   <property name="orientation">
-    <enum>Qt::Orientation::Vertical</enum>
-   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_4">
+    <item>
+     <widget class="CapsuleSlider" name="horizontalSlider">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>24</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>24</height>
+       </size>
+      </property>
+      <property name="minimum">
+       <number>0</number>
+      </property>
+      <property name="value">
+       <number>50</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Orientation::Horizontal</enum>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>URL:</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="lineEditUrl">
+        <property name="text">
+         <string>https://localhost/windows2000-kb835732-x86-deu.exe</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_3">
+      <item>
+       <widget class="QLabel" name="label_2">
+        <property name="text">
+         <string>Save:</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="lineEditFile">
+        <property name="text">
+         <string>D:\test1234.exe</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_4">
+      <item>
+       <widget class="QPushButton" name="pushButtonDownload">
+        <property name="text">
+         <string>Do Download</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QProgressBar" name="progressBar">
+        <property name="value">
+         <number>24</number>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
   </widget>
-  <widget class="CapsuleSlider" name="horizontalSlider">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>418</x>
-     <y>632</y>
-     <width>591</width>
-     <height>24</height>
+     <x>1056</x>
+     <y>218</y>
+     <width>175</width>
+     <height>473</height>
     </rect>
    </property>
-   <property name="minimumSize">
-    <size>
-     <width>0</width>
-     <height>24</height>
-    </size>
-   </property>
-   <property name="maximumSize">
-    <size>
-     <width>16777215</width>
-     <height>24</height>
-    </size>
-   </property>
-   <property name="orientation">
-    <enum>Qt::Orientation::Horizontal</enum>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label">
-   <property name="geometry">
-    <rect>
-     <x>430</x>
-     <y>688</y>
-     <width>60</width>
-     <height>15</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>URL:</string>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_2">
-   <property name="geometry">
-    <rect>
-     <x>430</x>
-     <y>718</y>
-     <width>60</width>
-     <height>15</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Save:</string>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="lineEditUrl">
-   <property name="geometry">
-    <rect>
-     <x>506</x>
-     <y>688</y>
-     <width>453</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>https://localhost/windows2000-kb835732-x86-deu.exe</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="lineEditFile">
-   <property name="geometry">
-    <rect>
-     <x>506</x>
-     <y>716</y>
-     <width>453</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>D:\test1234.exe</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButtonDownload">
-   <property name="geometry">
-    <rect>
-     <x>506</x>
-     <y>756</y>
-     <width>135</width>
-     <height>33</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Do Download</string>
-   </property>
-  </widget>
-  <widget class="QProgressBar" name="progressBar">
-   <property name="geometry">
-    <rect>
-     <x>660</x>
-     <y>758</y>
-     <width>299</width>
-     <height>28</height>
-    </rect>
-   </property>
-   <property name="value">
-    <number>24</number>
-   </property>
-  </widget>
-  <widget class="QSpinBox" name="spinBoxTest">
-   <property name="geometry">
-    <rect>
-     <x>954</x>
-     <y>542</y>
-     <width>135</width>
-     <height>33</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>14</pointsize>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QSpinBox {
+   <layout class="QVBoxLayout" name="verticalLayout_5">
+    <item alignment="Qt::AlignmentFlag::AlignHCenter">
+     <widget class="CapsuleSlider" name="verticalSlider">
+      <property name="value">
+       <number>50</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Orientation::Vertical</enum>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QSpinBox" name="spinBoxTest">
+      <property name="font">
+       <font>
+        <pointsize>14</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QSpinBox {
     padding-left: 10px;
     padding-right: 10px;
 	background-color:#F6F6F6;
@@ -559,20 +571,25 @@ QSpinBox::up-button:disabled{
 QSpinBox::down-button:disabled{
     background-image: url(:/images/minus-disabled.png);
 }</string>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignmentFlag::AlignCenter</set>
-   </property>
-   <property name="readOnly">
-    <bool>false</bool>
-   </property>
-   <property name="minimum">
-    <number>-200</number>
-   </property>
-   <property name="maximum">
-    <number>200</number>
-   </property>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignmentFlag::AlignCenter</set>
+      </property>
+      <property name="readOnly">
+       <bool>false</bool>
+      </property>
+      <property name="minimum">
+       <number>-200</number>
+      </property>
+      <property name="maximum">
+       <number>200</number>
+      </property>
+     </widget>
+    </item>
+   </layout>
   </widget>
+  <zorder>layoutWidget</zorder>
+  <zorder>layoutWidget</zorder>
   <zorder>layoutWidget</zorder>
   <zorder>layoutWidget</zorder>
   <zorder>tabWidget</zorder>
@@ -586,15 +603,6 @@ QSpinBox::down-button:disabled{
   <zorder>label2222</zorder>
   <zorder>frame_2</zorder>
   <zorder>label3333</zorder>
-  <zorder>verticalSlider</zorder>
-  <zorder>horizontalSlider</zorder>
-  <zorder>label</zorder>
-  <zorder>label_2</zorder>
-  <zorder>lineEditUrl</zorder>
-  <zorder>lineEditFile</zorder>
-  <zorder>pushButtonDownload</zorder>
-  <zorder>progressBar</zorder>
-  <zorder>spinBoxTest</zorder>
  </widget>
  <customwidgets>
   <customwidget>

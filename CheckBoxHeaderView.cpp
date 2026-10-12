@@ -47,7 +47,7 @@ void CheckBoxHeaderView::paintSection(QPainter *painter, const QRect &rect, int 
 
         painter->setRenderHint(QPainter::SmoothPixmapTransform);
 
-        QRect rcBox = rect.adjusted(2,2,-2,-2);
+        QRect rcBox = rect.adjusted(4,2,-2,-2);
         rcBox.setRight(rcBox.left() + 18);
         rcBox.setBottom(rcBox.top() + 18);
         painter->drawImage(rcBox,QImage(m_checkStates[nCol] ? m_checkedImage : m_uncheckedImage));

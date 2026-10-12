@@ -14,7 +14,7 @@
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">QPushButton{border:2px soild red;color:blue;}</string>
+   <string notr="true"/>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -71,7 +71,7 @@
     <item>
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>2</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -157,14 +157,8 @@
               </property>
              </widget>
             </item>
-            <item>
+            <item alignment="Qt::AlignmentFlag::AlignHCenter">
              <widget class="QCheckBox" name="checkBox">
-              <property name="minimumSize">
-               <size>
-                <width>0</width>
-                <height>100</height>
-               </size>
-              </property>
               <property name="text">
                <string>我同意所有合同</string>
               </property>
@@ -270,10 +264,10 @@
        <widget class="ColorPicker" name="widget" native="true">
         <property name="geometry">
          <rect>
-          <x>108</x>
+          <x>44</x>
           <y>28</y>
-          <width>227</width>
-          <height>175</height>
+          <width>1205</width>
+          <height>385</height>
          </rect>
         </property>
        </widget>
@@ -296,6 +290,12 @@
  </widget>
  <customwidgets>
   <customwidget>
+   <class>MacroSquare</class>
+   <extends>QFrame</extends>
+   <header location="global">macrosquare.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
    <class>KeyboardButton</class>
    <extends>QPushButton</extends>
    <header>keyboardbutton.h</header>
@@ -304,12 +304,6 @@
    <class>CustumGraphicsView</class>
    <extends>QGraphicsView</extends>
    <header>custumgraphicsview.h</header>
-  </customwidget>
-  <customwidget>
-   <class>MacroSquare</class>
-   <extends>QFrame</extends>
-   <header location="global">macrosquare.h</header>
-   <container>1</container>
   </customwidget>
   <customwidget>
    <class>ColorPicker</class>
