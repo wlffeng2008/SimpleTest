@@ -67,7 +67,6 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    //qApp->setStyle(new CustomStyle);
     {
         QString strBuild ;
 #ifdef _MSC_VER

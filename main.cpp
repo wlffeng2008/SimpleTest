@@ -10,6 +10,9 @@ int main(int argc, char *argv[])
 {
     MyEasyApp app(argc, argv);
 
+    app.setStyle("Fusion");
+    app.setStyle(new CustomStyle);
+
     QTranslator translator;
     const QStringList uiLanguages = QLocale::system().uiLanguages();
     for (const QString &locale : uiLanguages) {

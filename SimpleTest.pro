@@ -27,6 +27,7 @@ SOURCES += \
     LinearFixing1.cpp \
     MacroSquare.cpp \
     SuperLabel.cpp \
+    extendradio.cpp \
     keyboardbutton.cpp \
     main.cpp \
     MainWindow.cpp
@@ -45,6 +46,7 @@ HEADERS += \
     MainWindow.h \
     MyEasyApp.h \
     SuperLabel.h \
+    extendradio.h \
     keyboardbutton.h
 
 FORMS += \

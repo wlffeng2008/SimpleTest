@@ -35,7 +35,9 @@
             border-radius: 10px; }
 
         QSlider::handle:hover { background: #F0F0F0;}
-        QSlider::handle:pressed { background: #E0E0E0; border-color: #2D7FD1; }</string>
+        QSlider::handle:pressed { background: #E0E0E0; border-color: #2D7FD1; }
+
+QRadioButton{min-height:24px; }</string>
   </property>
   <widget class="QScrollArea" name="scrollArea">
    <property name="geometry">
@@ -185,7 +187,7 @@
    <property name="geometry">
     <rect>
      <x>544</x>
-     <y>276</y>
+     <y>296</y>
      <width>257</width>
      <height>192</height>
     </rect>
@@ -205,7 +207,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <property name="geometry">
     <rect>
      <x>424</x>
-     <y>130</y>
+     <y>164</y>
      <width>91</width>
      <height>20</height>
     </rect>
@@ -218,7 +220,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <property name="geometry">
     <rect>
      <x>568</x>
-     <y>132</y>
+     <y>166</y>
      <width>93</width>
      <height>20</height>
     </rect>
@@ -231,7 +233,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <property name="geometry">
     <rect>
      <x>418</x>
-     <y>278</y>
+     <y>298</y>
      <width>109</width>
      <height>189</height>
     </rect>
@@ -271,7 +273,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <property name="geometry">
     <rect>
      <x>416</x>
-     <y>174</y>
+     <y>194</y>
      <width>189</width>
      <height>91</height>
     </rect>
@@ -291,10 +293,10 @@ li.checked::marker { content: &quot;\2612&quot;; }
   <widget class="QSpinBox" name="spinBox">
    <property name="geometry">
     <rect>
-     <x>628</x>
-     <y>174</y>
+     <x>668</x>
+     <y>160</y>
      <width>147</width>
-     <height>22</height>
+     <height>29</height>
     </rect>
    </property>
   </widget>
@@ -302,7 +304,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <property name="geometry">
     <rect>
      <x>808</x>
-     <y>454</y>
+     <y>480</y>
      <width>200</width>
      <height>200</height>
     </rect>
@@ -336,7 +338,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <property name="geometry">
     <rect>
      <x>698</x>
-     <y>502</y>
+     <y>528</y>
      <width>100</width>
      <height>100</height>
     </rect>
@@ -363,8 +365,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
   <widget class="MacroSquare" name="frame_2">
    <property name="geometry">
     <rect>
-     <x>624</x>
-     <y>200</y>
+     <x>645</x>
+     <y>214</y>
      <width>50</width>
      <height>50</height>
     </rect>
@@ -391,8 +393,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
   <widget class="QLabel" name="label3333">
    <property name="geometry">
     <rect>
-     <x>703</x>
-     <y>202</y>
+     <x>724</x>
+     <y>210</y>
      <width>69</width>
      <height>60</height>
     </rect>
@@ -504,9 +506,9 @@ li.checked::marker { content: &quot;\2612&quot;; }
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>1056</x>
+     <x>1108</x>
      <y>218</y>
-     <width>175</width>
+     <width>123</width>
      <height>473</height>
     </rect>
    </property>
@@ -588,6 +590,56 @@ QSpinBox::down-button:disabled{
     </item>
    </layout>
   </widget>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>829</x>
+     <y>176</y>
+     <width>209</width>
+     <height>271</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_6">
+    <item>
+     <widget class="ExtendRadio" name="radioButton">
+      <property name="text">
+       <string>RadioButton</string>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="ExtendRadio" name="radioButton_2">
+      <property name="text">
+       <string>RadioButton</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="ExtendRadio" name="radioButton_3">
+      <property name="text">
+       <string>RadioButton</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QRadioButton" name="radioButton_4">
+      <property name="text">
+       <string>RadioButton</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QRadioButton" name="radioButton_5">
+      <property name="text">
+       <string>RadioButton</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
   <zorder>layoutWidget</zorder>
   <zorder>layoutWidget</zorder>
   <zorder>layoutWidget</zorder>
@@ -603,6 +655,11 @@ QSpinBox::down-button:disabled{
   <zorder>label2222</zorder>
   <zorder>frame_2</zorder>
   <zorder>label3333</zorder>
+  <zorder>radioButton</zorder>
+  <zorder>radioButton_2</zorder>
+  <zorder>radioButton_3</zorder>
+  <zorder>radioButton_4</zorder>
+  <zorder>radioButton_5</zorder>
  </widget>
  <customwidgets>
   <customwidget>
@@ -615,6 +672,11 @@ QSpinBox::down-button:disabled{
    <class>CapsuleSlider</class>
    <extends>QSlider</extends>
    <header>capsuleslider.h</header>
+  </customwidget>
+  <customwidget>
+   <class>ExtendRadio</class>
+   <extends>QRadioButton</extends>
+   <header>extendradio.h</header>
   </customwidget>
  </customwidgets>
  <resources>
