@@ -95,11 +95,11 @@ MainWindow::MainWindow(QWidget *parent)
         MyEasyApp *app = dynamic_cast<MyEasyApp *>(qApp);
 
         connect(app,&MyEasyApp::onKeyEvent,this,[=](QObject *receiver,QKeyEvent *keyEvent){
-            qDebug() << "全局按键:" << receiver << keyEvent->key() << keyEvent->type() << keyEvent->text() << QString::asprintf("%04X",keyEvent->nativeScanCode());
+            //qDebug() << "全局按键:" << receiver << keyEvent->key() << keyEvent->type() << keyEvent->text() << QString::asprintf("%04X",keyEvent->nativeScanCode());
         });
 
         connect(app,&MyEasyApp::onMouseEvent,this,[=](QObject *receiver,QMouseEvent *mEvent){
-            qDebug() << "全局鼠标:" <<  receiver << mEvent->type() << mEvent->globalPosition();
+            //qDebug() << "全局鼠标:" <<  receiver << mEvent->type() << mEvent->globalPosition();
         });
     }
 

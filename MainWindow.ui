@@ -71,7 +71,7 @@
     <item>
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>1</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -266,9 +266,28 @@
          <rect>
           <x>44</x>
           <y>28</y>
-          <width>1205</width>
+          <width>525</width>
           <height>385</height>
          </rect>
+        </property>
+       </widget>
+       <widget class="FrameDragset" name="frame_2">
+        <property name="geometry">
+         <rect>
+          <x>602</x>
+          <y>34</y>
+          <width>640</width>
+          <height>69</height>
+         </rect>
+        </property>
+        <property name="mouseTracking">
+         <bool>true</bool>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::Shape::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Shadow::Raised</enum>
         </property>
        </widget>
       </widget>
@@ -309,6 +328,12 @@
    <class>ColorPicker</class>
    <extends>QWidget</extends>
    <header location="global">colorpicker.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>FrameDragset</class>
+   <extends>QFrame</extends>
+   <header>framedragset.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>
