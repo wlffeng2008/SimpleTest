@@ -28,6 +28,7 @@ SOURCES += \
     MacroSquare.cpp \
     SuperLabel.cpp \
     extendradio.cpp \
+    framedragset.cpp \
     keyboardbutton.cpp \
     main.cpp \
     MainWindow.cpp
@@ -47,6 +48,7 @@ HEADERS += \
     MyEasyApp.h \
     SuperLabel.h \
     extendradio.h \
+    framedragset.h \
     keyboardbutton.h
 
 FORMS += \
@@ -54,7 +56,8 @@ FORMS += \
     DialogMotionCtrl.ui \
     DialogScrollTest.ui \
     MacroSquare.ui \
-    MainWindow.ui
+    MainWindow.ui \
+    framedragset.ui
 
 TRANSLATIONS += \
     SimpleTest_zh_CN.ts
