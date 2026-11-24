@@ -6,8 +6,13 @@
    <rect>
     <x>0</x>
     <y>0</y>
+<<<<<<< HEAD
     <width>420</width>
     <height>38</height>
+=======
+    <width>640</width>
+    <height>48</height>
+>>>>>>> f4b51202682bda85b9551f3c94a1a77c917ebc95
    </rect>
   </property>
   <property name="mouseTracking">
